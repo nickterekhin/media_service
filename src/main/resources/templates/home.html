@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/layouts/main_layout">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+<div class="row" layout:fragment="sub_header" th:classappend="sub-header">
+<img src="/static/img/header_about.jpg" th:src="@{img/header_about.jpg}"/>
+<div class="sub-header-content">
+    <div class="col-md-6">
+        <div class="sub-header-text">
+            <h2>The place where opensource music starts</h2>
+            <p><strong>GuitHub</strong> is a first platform for writing sheet music <i>together</i>.</p>
+            <p>JOIN EXISTING OPEN SOURCE MUSIC PROJECT OR START YOUR OWN WITH FELLOW MUSICIANS</p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div th:replace="partials/signup_form::signup_form"></div>
+    </div>
+</div>
+    </div>
+<div layout:fragment="content" id="App">
+    <div class="container">
+        Home Page
+    </div>
+</div>
+</body>
+</html>

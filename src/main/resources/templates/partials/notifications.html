@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:if="${message!=null}" class="alert" th:classappend="${message.type}" th:fragment="notify" role="alert">
+    <p th:text="${message.text}"></p>
+</div>
+</html>

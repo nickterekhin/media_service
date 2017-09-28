@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Login</title>
+    <object th:include="other/admin_header::headTag" th:remove="tag"/>
+</head>
+<body>
+
+<div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                <span class="fa fa-gear"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="../static/img/logo.png" th:src="@{/img/logo.png}"
+                     alt="GuitHub"/>
+            </a>
+        </div>
+        <div class="navbar navbar-default">
+            <ul class="user-nav nav navbar-nav navbar-right">
+                <li>
+                    <p class="navbar-text">Group: <span th:text="${session.user.userGroup.getGroupName()}"></span></p>
+                </li>
+                <li>
+                    <p class="navbar-text">Name: <span th:text="${session.user.getUsername()}"></span></p>
+                </li>
+                <li>
+                    <a href="/logout" th:href="@{/logout}" ><i class="fa fa-hand-o-right"></i><span>LogOut</span></a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+<div class="music-wrapper">
+    <div class="music-sidebar">
+        <div class="music-menu-space">
+            <div class="content">
+                <ul class="music-navigation metismenu" id="menu">
+                    <li class="parent" th:classappend="${#httpServletRequest.getRequestURI()=='/profile'?'active':''}">
+                        <a href="/profile" aria-expanded="false"><i class="fa fa-home" ></i> <span>Dashboard</span></a>
+                    </li>
+                    <li class="parent" th:classappend="${#httpServletRequest.getRequestURI()=='/profile/projects'?'active':''}">
+                        <a href="/profile/projects" aria-expanded="false"><i class="fa fa-home" ></i> <span>Projects</span></a>
+                        <ul class="collapse hf-sub-nav" aria-expanded="false">
+                            <li class="" th:classappend="${#httpServletRequest.getRequestURI()=='/profile/projects'}">
+                            <a href="/profile/projects" aria-expanded="false" ><span class="hf-nav-item">All
+                                Projects</span></a>
+                    </li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI()=='/profile/projects?a=add'?'active':''}">
+                    <a href="/profile/projects?a=add" aria-expanded="false"
+                            ><span class="hf-nav-item">Add New</span></a>
+                    </li>
+
+                </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="page-head">
+
+            <h2>
+                <div layout:fragment="page-title"></div>
+                <div class="pull-right">
+
+
+                </div>
+            </h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div layout:fragment="content">
+                        <p>Admin Page Content</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

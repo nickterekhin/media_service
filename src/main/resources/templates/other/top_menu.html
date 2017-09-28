@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="col-md-6 col-xs-12" th:fragment="menu">
+    <div class="row btn-top-menu">
+        <ul class="btn-top-items">
+            <li class="menu-item" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active':''}"><a href="" >About</a></li>
+            <li class="menu-item" th:classappend="${#httpServletRequest.getRequestURI() == '/partners' ? 'active':''}"><a href="" >Partners</a></li>
+            <li class="menu-item" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active':''}"><a href="" >Get Started</a></li>
+            <li class="menu-item" th:classappend="${#httpServletRequest.getRequestURI() == '/about' ? 'active':''}"><a href="" >Contacts</a></li>
+        </ul>
+    </div>
+</div>
+
+</html>

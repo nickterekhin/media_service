@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">MWS Main Page</title>
+    <object th:include="other/header::headTag" th:remove="tag"/>
+</head>
+<body class="music-layout">
+<div class="main-background">
+    <div class="wrapper layout">
+        <section class="container-fluid header">
+            <section class="container">
+                    <div class="col-md-3 col-xs-12 text-center" id="logo">
+                        <h1>
+                            <a href="/">
+                                <img src="../static/img/logo.png" th:src="@{img/logo.png}"
+                                     alt="GuitHub"/>
+                            </a>
+                        </h1>
+                    </div>
+                    <div th:replace="other/top_menu::menu">
+
+                    </div>
+                    <div th:replace="other/user_panel::user_panel">
+
+                    </div>
+            </section>
+        </section>
+        <div class="row sub-header-fix" layout:fragment="sub_header">
+
+        </div>
+        <div id="body">
+            <div layout:fragment="content" class="container-fluid main_content clearfix">
+                <p>Master Page Content</p>
+            </div>
+        </div>
+        <footer class="container-fluid main-content footer-contact">
+
+                <section class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2>Contact
+                            <span>Us</span>
+                            </h2>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                                T: 0-800-500-0-500
+                                <i class="fa fa-envelope"></i>
+                                address@mail.com
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="container">
+                    <div class="col-md-12 text-left">
+                        <p>&copy; <span th:text="${#dates.format(#dates.createToday(),'yyyy')}"></span> - All rights reserved</p>
+                    </div>
+                </section>
+
+        </footer>
+    </div>
+
+</div>
+
+</body>
+</html>

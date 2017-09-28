@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/layouts/admin_layout">
+<head>
+    <title>Profile Page</title>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sorted-table").dataTable();
+        });
+    </script>
+</head>
+<body>
+<div layout:fragment="page-title">Projects List</div>
+<div layout:fragment="content" >
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="flat-block-info">
+                <div class="content ">
+                    <table class="table table-striped table-hover" id="sorted-table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Project Name</th>
+                            <th>Collaborators</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <th class="action-buttons">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="project : ${projects}">
+                            <td th:text="${project.getId()}">Ua</td>
+                            <td th:text="${project.getName()}">Ua</td>
+                            <td >Collaborators List</td>
+                            <td th:text="${#dates.format(project.getCreatedAt().toDate(),'dd/MM/yyyy')}">Ua</td>
+                            <td>Status</td>
+                            <td class="action-buttons">
+                                <a th:href="@{/profile/project(a=edit,uid=${project.getId()})}" class="btn btn-info"
+                                   title="Edit"><i class="fa fa-pencil-square-o"></i><span>Edit</span></a>
+                                <a th:href="@{/profile/project(a=del,uid=${project.getId()})}" class="btn btn-danger"
+                                   title="Delete"><i class="fa fa-trash-o"></i><span>Delete</span></a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

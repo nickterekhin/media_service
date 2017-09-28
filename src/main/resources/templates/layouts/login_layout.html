@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Login</title>
+    <object th:include="other/header::headTag" th:remove="tag"/>
+</head>
+<body class="login-layout">
+<section class="container-fluid login-header">
+    <section class="container">
+        <a href="/" style="outline: none"> <img src="../static/img/logo.png" th:src="@{img/logo.png}"
+             alt="GuitHub"/>
+        </a>
+    </section>
+</section>
+<section id="body" class="container-fluid">
+
+    <div layout:fragment="content" class="container login-content clearfix">
+
+    </div>
+
+</section>
+<section class="container-fluid login-content-footer">
+    <section class="container">
+        
+            <div class="col-md-4 col-md-offset-4">
+                <div class="music-login-new-account">
+                <span>New to GuitHub?</span>&nbsp;<a href="/signup">create new account</a>
+                </div>
+            </div>
+
+    </section>
+</section>
+<section class=" container-fluid login-content-footer">
+    <section class="container">
+        <ul class="col-md-4 col-md-offset-4 login-footer-links">
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Contact GuitHub</li>
+        </ul>
+    </section>
+
+</section>
+</body>
+</html>

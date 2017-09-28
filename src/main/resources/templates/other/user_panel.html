@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div class="col-md-3 col-xs-12" th:fragment="user_panel">
+    <div class="row btn-top-menu" th:if="${not session.isLogin}">
+        <ul class="btn-user-items">
+            <li class="user-item" th:classappend="${#httpServletRequest.getRequestURI() == '/signin' ? 'active':''}"><a href="/login" th:href="@{/login}">SignIn</a></li>
+            <li class="user-item" th:classappend="${#httpServletRequest.getRequestURI() == '/signun' ? 'active':''}"><a href="/signup" th:href="@{/signup}">SignUp</a></li>
+        </ul>
+    </div>
+
+    <div class="row btn-top-menu" th:if="${session.isLogin}">
+        <ul class="btn-user-items">
+            <li class="user-item"><a href="/profile" th:href="@{/profile}" ><i class="fa fa-user"></i>My Profile</a></li>
+            <li class="user-item"><a href="/logout" th:href="@{/logout}"><i class="fa fa-exit"></i>LogOut</a></li>
+        </ul>
+    </div>
+</div>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="signup_form">
+<form  method="POST" action="" th:action="${#httpServletRequest.getQueryString()}" >
+    <input type="hidden" name="signup-form" value="1"/>
+    <div class="row music-signup-form-content">
+        <div class="col-lg-9 col-md-8">
+            <div class="panel panel-admin">
+                <div class="panel-heading">
+                    <h3 class="panel-title">SignUp</h3>
+                </div>
+                <div class="panel-body">
+                    <div th:replace="partials/notifications::notify">
+
+                    </div>
+                    <div class="row" th:if="${isSignUp!=null and isSignUp}">
+                        <div class="col-md-12">
+                            <h3>We glad to see you!</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda consequatur doloremque ducimus esse excepturi facere facilis, inventore labore quo. Iste labore laborum maxime necessitatibus nostrum obcaecati optio repellendus sed.</p>
+
+                        </div>
+                        <div class="col-md-12">
+                            <a href="/login" class="btn btn-success btn-lg btn-block" th:href="@{/login}">SignIn</a>
+                        </div>
+                    </div>
+                    <div class="row" th:if="${isSignUp==null or not isSignUp}">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label" for="userName">Username</label>
+                                <div class="input-field">
+                                    <input type="text" name="userName" id="userName" class="form-control" required="required" value="" placeholder="Pick a username" th:value="${param.containsKey('userName')}?${param.userName[0]}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="email">Email</label>
+                                <div class="input-field">
+                                    <input type="email" name="email" id="email" class="form-control" required="required" value="" placeholder="Your Email address" th:value="${param.containsKey('email')}?${param.email[0]}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="password">Password</label>
+                                <div class="input-field">
+                                    <input type="password" name="password" id="password" class="form-control" required="required" value="" placeholder="Create a password"/>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block btn-lg">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+</div>
+</html>
